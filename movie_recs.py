@@ -1,7 +1,8 @@
 import requests
 
 API_KEY = "42c6c7b7"
-URL = "https://www.omdbapi.com/"
+#URL = "https://www.omdbapi.com/"
+
 
 '''Getting details of movies using API KEY'''
 def movie_details(title):
@@ -9,7 +10,7 @@ def movie_details(title):
         'apikey': API_KEY,
         'title': title
     }
-    response = requests.get(URL, params=params)
+    response = requests.get(f"http://www.omdbapi.com/?i=tt3896198&apikey=42c6c7b7")
     data = response.json() #assigning response from api request to variable
     return data
 
@@ -19,7 +20,7 @@ def get_recs(keyword):
         'apikey': API_KEY,
         'key': keyword
     }
-    response = requests.get(URL, params=params)
+    response = requests.get(f"http://www.omdbapi.com/?i=tt3896198&apikey=42c6c7b7")
     data = response.json()
     return data.get("Search", [])
 
