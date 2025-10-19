@@ -25,7 +25,7 @@ def get_recs(keyword):
 
 '''Formatting movie details'''
 def movie_info(data):
-    if data.get("Response") == "FALSE":
+    if data.get("Response") == "FALSE" or not data:
         print("\n Movie was not found")
         return False
     
@@ -34,12 +34,14 @@ def movie_info(data):
     print(f"\n Genre: {data['Genre']}")
     
     
-    
 def main():
     print("Welcome to Movie Recs!")
     title = input("Enter a movie title: ").strip()
     
     movie_data = movie_details(title)
+    #Debug step for API Response
+    print("DEBUG = movie_data = ", movie_data)
+    
     found = movie_info(movie_data)
     
     if not found:
